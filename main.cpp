@@ -17,9 +17,14 @@ private:
     std::priority_queue <double> bottom; //max heap
 };
 
-void Percentile::add(double)
+void Percentile::add(double d)
 {
-
+    if (top.empty() && bottom.empty())
+    {
+        bottom.push(d);
+        return;
+    }
+    top.push(d);
 }
 
 double Percentile::get() const
@@ -36,8 +41,9 @@ int main(int argc, char* argv[])
     double n;
     while (std::cin >> n)
     {
+        std::cout << "in " << n << std::endl;
         p.add(n);
-        std::cout << p.get() << std::endl;
+        std::cout << "out " << p.get() << std::endl;
     }
     return 0;
 }
