@@ -2,6 +2,7 @@
 #include <vector>
 #include <cassert>
 #include <queue>
+#include <limits>
 
 #define LOG std::cerr << __FUNCTION__ << std::endl
 
@@ -14,7 +15,6 @@ private:
     double percentile;
     std::priority_queue <double, std::vector<double>, std::greater<double>> top; //min heap
     std::priority_queue <double> bottom; //max heap
-
 };
 
 void Percentile::add(double)
@@ -24,7 +24,7 @@ void Percentile::add(double)
 
 double Percentile::get() const
 {
-    return 0;
+    return top.size() ? top.top() : std::numeric_limits<double>::quiet_NaN();
 }
 
 int main(int argc, char* argv[])
