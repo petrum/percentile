@@ -29,7 +29,6 @@ void Percentile::add(double d)
         top.pop();
         bottom.push(downgraded);
     }
-    ratio = bottom.size() / total;
 }
 
 double Percentile::get() const
