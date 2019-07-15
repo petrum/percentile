@@ -28,7 +28,7 @@ void Percentile::add(double d)
         top.pop();
         bottom.push(downgraded);
     }
-    // maintain the order between top/bottom
+    // maintain the strict order between top/bottom
     if (top.empty() || bottom.empty())
         return;
     double d1 = top.top(), d2 = bottom.top();
