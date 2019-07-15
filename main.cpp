@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
         //std::cout << "in " << n << std::endl;
         p.add(n);
         std::cout << p.get() << std::endl;
-        if (i % 1000 == 0)
+        if (i % 1000000 == 0)
             std::cerr << i << "\n";
     }
     return 0;
