@@ -24,14 +24,14 @@ void Percentile::add(double d)
     double ratio = bottom.size() / total;
     if (ratio < percentile)
     {
-        std::cerr << "before correction ratio = " << ratio << std::endl;
+        //std::cerr << "before correction ratio = " << ratio << std::endl;
         double downgraded = top.top();
         top.pop();
         bottom.push(downgraded);
     }
     ratio = bottom.size() / total;
-    std::cerr << "bottom.size = " << bottom.size() << ", top.size = " << top.size() << ", bottom.top = " << 
-        bottom.top() << ", top.bottom = " << top.top() << ", ratio = " << ratio << ", get = " << get() << "\n";
+    //std::cerr << "bottom.size = " << bottom.size() << ", top.size = " << top.size() << ", bottom.top = " << 
+    //    bottom.top() << ", top.bottom = " << top.top() << ", ratio = " << ratio << ", get = " << get() << "\n";
 }
 
 double Percentile::get() const
@@ -43,14 +43,14 @@ int main(int argc, char* argv[])
 {
     assert(argc == 2);
     double d = std::stod(argv[1]);
-    std::cerr << "- percentile = " << d << "%\n";
+    //std::cerr << "- percentile = " << d << "%\n";
     Percentile p(d / 100);
     double n;
     while (std::cin >> n)
     {
-        std::cout << "in " << n << std::endl;
+        //std::cout << "in " << n << std::endl;
         p.add(n);
-        std::cout << "out " << p.get() << std::endl;
+        std::cout << p.get() << std::endl;
     }
     return 0;
 }
