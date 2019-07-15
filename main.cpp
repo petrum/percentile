@@ -29,6 +29,8 @@ void Percentile::add(double d)
         top.pop();
         bottom.push(downgraded);
     }
+    if (top.empty() || bottom.empty())
+        return;
     double d1 = top.top(), d2 = bottom.top();
     if (d1 < d2)
     {
