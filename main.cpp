@@ -8,7 +8,7 @@ struct Percentile
 {
     Percentile(double d) : percentile(d) {}
     void add(double);
-    double get() const;
+    double get() const { return top.size() ? top.top() : std::numeric_limits<double>::quiet_NaN(); }
     std::size_t size() const { return top.size() + bottom.size(); }
 private:
     double percentile;
@@ -40,9 +40,6 @@ void Percentile::add(double d)
 }
 
 double Percentile::get() const
-{
-    return top.size() ? top.top() : std::numeric_limits<double>::quiet_NaN();
-}
 
 int main(int argc, char* argv[])
 {
