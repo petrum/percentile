@@ -21,12 +21,14 @@ void Percentile::add(double d)
     top.push(d);
     double total = top.size() + bottom.size();
     double ratio = bottom.size() / total;
+    // maintain the balance between top/bottom
     if (ratio < percentile)
     {
         double downgraded = top.top();
         top.pop();
         bottom.push(downgraded);
     }
+    // maintain the order between top/bottom
     if (top.empty() || bottom.empty())
         return;
     double d1 = top.top(), d2 = bottom.top();
