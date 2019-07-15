@@ -4,8 +4,6 @@
 #include <queue>
 #include <limits>
 
-#define LOG std::cerr << __FUNCTION__ << std::endl
-
 struct Percentile
 {
     Percentile(double d) : percentile(d) {}
