@@ -19,14 +19,19 @@ private:
 
 void Percentile::add(double d)
 {
-    bottom.push(d);
+    top.push(d);
     double total = top.size() + bottom.size();
-    if (bottom.size() / total > percentile)
+    double ratio = bottom.size() / total;
+    if (ratio < percentile)
     {
-        double upgraded = bottom.top();
-        bottom.pop();
-        top.push(upgraded);
+        std::cerr << "before correction ratio = " << ratio << std::endl;
+        double downgraded = top.top();
+        top.pop();
+        bottom.push(downgraded);
     }
+    ratio = bottom.size() / total;
+    std::cerr << "bottom.size = " << bottom.size() << ", top.size = " << top.size() << ", bottom.top = " << 
+        bottom.top() << ", top.bottom = " << top.top() << ", ratio = " << ratio << ", get = " << get() << "\n";
 }
 
 double Percentile::get() const
