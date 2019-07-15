@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
+#include <queue>
 
 #define LOG std::cerr << __FUNCTION__ << std::endl
 
@@ -11,10 +12,14 @@ struct Percentile
     double get() const;
 private:
     double percentile;
+    std::priority_queue <double, std::vector<double>, std::greater<double>> top; //min heap
+    std::priority_queue <double> bottom; //max heap
+
 };
 
 void Percentile::add(double)
 {
+
 }
 
 double Percentile::get() const
