@@ -33,7 +33,7 @@ void Percentile::add(double d)
     if (d1 < d2)
     {
         top.pop();
-        bottom.pop()
+        bottom.pop();
         top.push(d2);
         bottom.push(d1);
     }
