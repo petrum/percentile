@@ -1,4 +1,7 @@
 #!/bin/bash
 
-echo 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 | ./percentile 95
+for ((i = 0 ; i < 128000000 ; i++)); 
+do
+    printf '%.5f\n' "$(printf '0x0.%04xp1' $RANDOM)"
+done | ./percentile 95
 

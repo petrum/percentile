@@ -45,12 +45,16 @@ int main(int argc, char* argv[])
     double d = std::stod(argv[1]);
     //std::cerr << "- percentile = " << d << "%\n";
     Percentile p(d / 100);
+    std::size_t i = 0;
     double n;
     while (std::cin >> n)
     {
+        ++i;
         //std::cout << "in " << n << std::endl;
         p.add(n);
         std::cout << p.get() << std::endl;
+        if (i % 1000000 == 0)
+            std::cerr << i << "\n";
     }
     return 0;
 }
