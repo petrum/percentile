@@ -39,8 +39,6 @@ void Percentile::add(double d)
     }
 }
 
-double Percentile::get() const
-
 int main(int argc, char* argv[])
 {
     assert(argc == 2);
