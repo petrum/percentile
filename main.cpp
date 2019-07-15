@@ -19,12 +19,14 @@ private:
 
 void Percentile::add(double d)
 {
-    if (top.empty() && bottom.empty())
+    bottom.push(d);
+    double total = top.size() + bottom.size();
+    if (bottom.size() / total > percentile)
     {
-        bottom.push(d);
-        return;
+        double upgraded = bottom.top();
+        bottom.pop();
+        top.push(upgraded);
     }
-    top.push(d);
 }
 
 double Percentile::get() const
