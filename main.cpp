@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     assert(argc == 2);
     double d = std::stod(argv[1]);
     std::cerr << "- percentile = " << d << "%\n";
-    Percentile p(d);
+    Percentile p(d / 100);
     double n;
     while (std::cin >> n)
     {
