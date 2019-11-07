@@ -12,8 +12,8 @@ struct Percentile
     std::size_t size() const { return top.size() + bottom.size(); }
 private:
     double percentile;
-    std::priority_queue <double, std::vector<double>, std::greater<double>> top; //min heap
-    std::priority_queue <double> bottom; //max heap
+    std::priority_queue<double, std::vector<double>, std::greater<double>> top; //min heap
+    std::priority_queue<double> bottom; //max heap
 };
 
 void Percentile::add(double d)
